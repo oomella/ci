@@ -6,7 +6,7 @@
  * Date: 27/11/2559
  * Time: 11:23
  */
-class Comment_model
+class Comment_model extends CI_Model
 {
 
 }
