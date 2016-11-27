@@ -2,49 +2,52 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">จัดการมวดหมู่ข่าว</h1>
+            <h1 class="page-header">จัดการหมวดหมู่ข่าว</h1>
         </div>
         <!-- /.col-lg-12 -->
         <div class="col-lg-12">
             <div class="text-right">
-                <a  href="<?php echo base_url('admin/add_category')?>" class="btn btn-xs-primary">
-                <i class="fa fa-plus "></i>เพิ่มหมวดหมู่</a>
+                <a href="<?php echo base_url('admin/add_category') ?>" class="btn btn-xs-primary">
+                    <i class="fa fa-plus "></i>เพิ่มหมวดหมู่</a>
 
             </div>
 
-        <div class="col-lg-12">
-        <table class="table">
-            <tr>
-                <th>#</th>
-                <th>ชื่อหมวดหมู่</th>
-                <th>จัดการ</th>
-            </tr>
+            <div class="col-lg-12">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>ชื่อหมวดหมู่</th>
+                        <th>จัดการ</th>
+                    </tr>
 
-            <?php if($categories->num_rows > 0) {
-                foreach ($categories->result() as $category) {
-            ?>
-            <tr>
-                <td>1</td>
-                <td><?php echo $category->name ?></td>
-                <td>
-                    <a href= "#" class="btn btn-xs btn-warning">
-                        <i class="fa fa-edit"></i> แก้ไข
-                    </a>
-                    <a href= "#" class="btn btn-xs btn-danger">
-                        <i class="fa fa-times"></i> ลบ
-                    </a>
-                </td>
+                    <?php if ($categories->num_rows() > 0) {
+                        foreach ($categories->result() as $category) {
+                            ?>
+                            <tr>
+                                <td>1</td>
+                                <td><?php echo $category->name ?></td>
+                                <td>
+                                    <a href="<?php echo base_url('admin/edit_category/' . $categoty->categories_id) ?>"
+                                       class="btn btn-xs btn-warning">
+                                        <i class="fa fa-edit"></i> แก้ไข
+                                    </a>
+                                    <a href="<?php echo base_url('admin/delete_category/' . $categoty->categories_id) ?>"
+                                       class="btn btn-xs btn-danger">
+                                        <i class="fa fa-times"></i> ลบ
+                                    </a>
+                                </td>
 
-            </tr>
-            <?php  }}else { ?>
-                <tr>
-                    <td colspan="3"> ==ไม่มีข้อมูล==</td>
-                </tr>
+                            </tr>
+                        <?php }
+                    } else { ?>
+                        <tr>
+                            <td colspan="3"> ==ไม่มีข้อมูล==</td>
+                        </tr>
 
-            <?php } ?>
+                    <?php } ?>
 
-        </table>
-    </div>
-    <!-- /.row -->
-</div>
-<!-- /#page-wrapper -->
+                </table>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->

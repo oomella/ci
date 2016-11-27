@@ -20,4 +20,17 @@ class Category_model extends CI_Model
         );
         $this->db->insert('categories', $data);
     }
+
+    public function getCategoryBYyID($category_id)
+    {
+         $this->db->where('category_id', $category_id);
+        return $this->db->get ('categories');
+
+    }
+
+    public function updateCategory($category_id)
+    {
+
+    }
+
 }

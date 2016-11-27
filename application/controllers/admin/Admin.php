@@ -49,6 +49,22 @@ class Admin extends CI_Controller
         redirect(base_url('admin/category'));
     }
 
+    public function edit_category($category_id)
+    {
+        $category =$this->category_model->getCategoryByID($category_id);
+        $data array(
+        'category' => $category ->row()
+    );
+        $this->load->view('admin/layout/admin_header_view');
+        $this->load->view('admin/layout/admin_sidebar_view');
+        $this->load->view('admin/edit_category_view', $data);
+        $this->load->view('admin/layout/admin_footer_view');
+    }
+
+    public function update_category($category_id)
+    {
+
+    }
     public function news()
     {
         $this->load->view('admin/layout/admin_header_view');
